@@ -1,11 +1,31 @@
+/* Universal box-sizing for predictable layout */
+* {
+    box-sizing: border-box;
+}
+
 /* Reset and base styles */
 body,
 html {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    height: 100%;
     background-color: #FFF8DC;
+}
+
+/* This new section ensures the footer is always at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* This sets the minimum height of the body to 100% of the viewport height */
+}
+
+/* Explicitly remove margins from main page containers */
+header,
+main,
+.site-footer {
+    margin: 0;
+    padding: 0;
 }
 
 /* Header Styles */
@@ -46,51 +66,31 @@ header {
     display: block;
 }
 
-/* Fullscreen Image */
-.fullscreen-image {
+/* New CSS for the homepage images to remove gaps */
+.homepage-images-container {
+    display: flex;
+    /* Changed to flexbox to ensure no gaps between images */
+    flex-direction: column;
     width: 100%;
-    overflow: hidden;
+}
+
+.homepage-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.homepage-image-two-wrapper {
     position: relative;
-    padding: 0;
-    margin-top: -19px;
+    line-height: 0;
 }
 
-.fullscreen-image img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    display: block;
+/* This is the new rule that makes the main content take up all available space */
+main {
+    flex-grow: 1;
 }
 
-.fullscreen-image::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Subtle overlay for better text readability */
-    /* background-color: rgba(0, 0, 0, 0.2); */
-}
-
-/* Scrollable Image Sections */
-.scroll-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    padding: 0;
-    margin-bottom: -10px;
-    position: relative;
-    /* Add this to position overlay links */
-}
-
-.scroll-image img.background-image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
+/* Overlay Links */
 .overlay-links {
     position: absolute;
     top: 0;
@@ -100,33 +100,26 @@ header {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    /* Aligns items to the top of the container */
     padding-top: 10%;
-    /* Moves the links down from the top */
     pointer-events: none;
-    /* Allows clicks to go through to the links */
     gap: 20%;
-    /* Adjust the gap between links */
 }
 
+/* Updated styling for the 'Gallery' link to be more square and bigger */
 .overlay-link {
-    font-size: 2.5vw;
+    font-size: 2rem;
+    /* Made bigger */
     font-weight: bold;
     color: black;
     text-decoration: none;
     pointer-events: auto;
-    /* Re-enables clicks for the links */
     border: 2px solid black;
-    /* Add a black border */
-    padding: 5px 10px;
-    /* Add some padding around the text */
+    padding: 25px 30px;
+    /* Adjusted padding for a more square shape */
     border-radius: 5px;
-    /* Optional: adds a slight curve to the corners */
     background-color: rgba(255, 255, 255, 0.7);
-    /* Optional: add a semi-transparent background for readability */
-
-    /* Animation for bobbing effect */
     animation: bob 2s infinite alternate;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .overlay-link:hover {
@@ -137,20 +130,47 @@ header {
 /* Site Footer */
 .site-footer {
     text-align: center;
-    padding: 20px 0;
     background-color: #d1b4c9;
     color: #5d3e69;
-    /* Dark purple color */
+    /* Made color darker purple */
     font-size: 14px;
-    margin-top: 0;
-    /* Removed the gap */
+    padding: 20px 0;
 }
 
+/* Updated rule for the policies link in the footer */
 .site-footer a {
-    color: #5d3e69;
-    /* Dark purple color */
+    color: #4a4aaf;
+    /* Default purple color for the link */
     text-decoration: none;
     font-weight: bold;
+    text-shadow: 0 0 5px #d1b4c9, 0 0 10px #d1b4c9;
+    /* Purple glowing effect */
+    animation: pulse 2s infinite;
+    /* Applied a pulsing animation */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover state for the policies link to turn it pink and make the glow pink */
+.site-footer a:hover {
+    color: #e598b9;
+    /* Pink on hover */
+    text-shadow: 0 0 5px #ffb6c1, 0 0 10px #ffb6c1;
+    /* Pink glow on hover */
+}
+
+/* Animation for the pulsing effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* Styles for Policies Page */
@@ -162,10 +182,12 @@ header {
 }
 
 .policies-page-content h2 {
-    color: #d1b4c9;
+    color: #e598b9;
+    /* Made this a pink color */
     font-size: 2rem;
     margin-top: 30px;
-    border-bottom: 2px solid #d1b4c9;
+    border-bottom: 2px solid #e598b9;
+    /* Made the border bottom pink */
     padding-bottom: 10px;
 }
 
@@ -187,7 +209,6 @@ header {
     margin-top: 20px;
 }
 
-/* New rule to move the policies footer down */
 .policies-footer-adjust {
     margin-top: 100px;
 }
@@ -201,7 +222,6 @@ header {
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
-    /* This is key for the shimmer effect */
 }
 
 /* Gallery Page Specific Styles */
@@ -225,7 +245,6 @@ header {
     justify-self: center;
 }
 
-/* Make images scale on hover */
 .gallery-pic:hover {
     transform: scale(1.05);
 }
@@ -267,18 +286,14 @@ header {
     align-items: center;
 }
 
-/* Updated styling for contact links - more simple */
 .contact-link-simple {
     display: block;
     padding: 15px;
     width: 100%;
     max-width: 350px;
     background-color: transparent;
-    /* Changed to transparent */
     color: #4a4aaf;
-    /* Changed to purple text */
     border: none;
-    /* Explicitly remove border */
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
@@ -287,7 +302,6 @@ header {
 
 .contact-link-simple:hover {
     background-color: #fce4ec;
-    /* Subtle hover color */
     transform: scale(1.05);
 }
 
@@ -380,6 +394,7 @@ header {
 .booking-btn-glow:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    /* Corrected box-shadow value */
 }
 
 .instagram-btn-glow {
@@ -445,34 +460,27 @@ header {
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        /* Stack nav items on mobile */
         padding: 15px 20px;
-        /* Reduce padding on mobile */
     }
 
     .nav-left,
     .nav-right {
         justify-content: center;
         margin-top: 5px;
-        /* Reduce margin */
         gap: 15px;
-        /* Reduce gap */
     }
 
     .nav-left a,
     .nav-right a {
         font-size: 16px;
-        /* Smaller font for mobile nav links */
     }
 
     .logo img {
         height: 80px;
-        /* Smaller logo on mobile */
     }
 
     .site-footer {
         font-size: 12px;
-        /* Smaller font for the footer */
     }
 
     /* Gallery page single column layout for mobile */
@@ -482,13 +490,12 @@ header {
 
     .overlay-links {
         gap: 10%;
-        /* Adjust gap for smaller screens */
         padding-top: 25%;
-        /* Adjust this for mobile screens */
     }
 
     .overlay-link {
-        font-size: 4vw;
-        /* Adjust font size for smaller screens */
+        font-size: 1.5rem;
+        padding: 15px 15px;
+        /* Adjusted for a more square mobile look */
     }
 }
