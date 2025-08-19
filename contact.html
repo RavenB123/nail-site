@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - I Love Ur Nails</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="services.html">Services</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="book.html">Book</a>
+            </div>
+
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="I Love Your Nails Logo" />
+                </a>
+            </div>
+
+            <div class="nav-right">
+                <a href="contact.html">Contact</a>
+                <a href="index.html">Back to Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section-simple">
+            <div class="contact-container-simple">
+                <h1>Get in Touch</h1>
+                <p>
+                    Ready for your next set? Contact me to discuss your ideas or
+                    book an appointment.
+                </p>
+                <div class="contact-links-simple">
+                    <a href="https://www.instagram.com/iloveurnails_/" target="_blank" class="contact-link-simple">
+                        Instagram: @iloveurnails_
+                    </a>
+                    <div class="email-container">
+                        <a href="mailto:iloveurnails@email.com" class="contact-link-simple">
+                            Email: iloveurnails@email.com
+                        </a>
+                        <button class="copy-btn">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        &copy; 2025 I Love Ur Nails. All rights reserved. | <a href="policies.html"
+            class="footer-policies-link">Policies and Procedures</a>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyBtn = document.querySelector('.copy-btn');
+            const emailLink = document.querySelector('.email-container .contact-link-simple');
+
+            function createSparkle(x, y) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = `${x}px`;
+                sparkle.style.top = `${y}px`;
+                document.body.appendChild(sparkle);
+
+                // Remove the sparkle after its animation is finished
+                sparkle.addEventListener('animationend', () => {
+                    sparkle.remove();
+                });
+            }
+
+            copyBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const email = emailLink.textContent.trim().replace('Email: ', '');
+
+                // Get button position and size
+                const rect = copyBtn.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                // Create multiple sparkles
+                for (let i = 0; i < 10; i++) {
+                    const randomX = centerX + (Math.random() - 0.5) * 50;
+                    const randomY = centerY + (Math.random() - 0.5) * 50;
+                    createSparkle(randomX, randomY);
+                }
+
+                // Use a temporary textarea to copy text to the clipboard
+                const textarea = document.createElement('textarea');
+                textarea.value = email;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+
+                // Provide user feedback
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+
+</html>

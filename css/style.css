@@ -1,0 +1,406 @@
+/* Reset and base styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    background-color: #FFF8DC;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(255, 248, 220, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-left a,
+.nav-right a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #4a4aaf;
+    font-size: 18px;
+}
+
+/* Logo */
+.logo img {
+    height: 150px;
+    display: block;
+}
+
+/* Fullscreen Image */
+.fullscreen-image {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+    margin-top: -19px;
+}
+
+.fullscreen-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.fullscreen-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle overlay for better text readability */
+    /* background-color: rgba(0, 0, 0, 0.2); */
+}
+
+/* Scrollable Image Sections */
+.scroll-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 0;
+    margin-bottom: -10px;
+}
+
+.scroll-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Site Footer */
+.site-footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #d1b4c9;
+    color: #5d3e69;
+    /* Dark purple color */
+    font-size: 14px;
+    margin-top: 0;
+    /* Removed the gap */
+}
+
+.site-footer a {
+    color: #5d3e69;
+    /* Dark purple color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Styles for Policies Page */
+.policies-page-content {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+    color: #4a4aaf;
+}
+
+.policies-page-content h2 {
+    color: #d1b4c9;
+    font-size: 2rem;
+    margin-top: 30px;
+    border-bottom: 2px solid #d1b4c9;
+    padding-bottom: 10px;
+}
+
+.policies-page-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.policies-page-content li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.policies-page-content .site-footer {
+    margin-top: 20px;
+}
+
+.gallery-footer-adjust {
+    margin-top: 20px;
+}
+
+/* New rule to move the policies footer down */
+.policies-footer-adjust {
+    margin-top: 100px;
+}
+
+/* Gallery Page Title */
+.gallery-title {
+    text-align: center;
+    color: #4a4aaf;
+    font-size: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    /* This is key for the shimmer effect */
+}
+
+/* Gallery Page Specific Styles */
+.gallery-page-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    justify-content: center;
+    padding: 0 0px 50px;
+}
+
+.gallery-pic {
+    width: 100%;
+    max-width: 500px;
+    height: 300px;
+    object-fit: cover;
+    object-position: 100% 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    justify-self: center;
+}
+
+/* Make images scale on hover */
+.gallery-pic:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Page Styles (Simplified) */
+.contact-section-simple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+    background-color: #FCE4EC;
+}
+
+.contact-container-simple {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-container-simple h1 {
+    color: #4a4aaf;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contact-container-simple p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.contact-links-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+/* Updated styling for contact links - more simple */
+.contact-link-simple {
+    display: block;
+    padding: 15px;
+    width: 100%;
+    max-width: 350px;
+    background-color: transparent;
+    /* Changed to transparent */
+    color: #4a4aaf;
+    /* Changed to purple text */
+    border: none;
+    /* Explicitly remove border */
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.contact-link-simple:hover {
+    background-color: #fce4ec;
+    /* Subtle hover color */
+    transform: scale(1.05);
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.email-container .contact-link-simple {
+    flex-grow: 1;
+}
+
+.copy-btn {
+    background-color: #d1b4c9;
+    color: #5d3e69;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #5d3e69;
+    color: #fff;
+}
+
+/* Booking Page Styles (New) */
+.booking-section-glow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+    background-color: #f2e1e9;
+    text-align: center;
+}
+
+.booking-glow-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    max-width: 700px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.booking-glow-card:hover {
+    transform: translateY(-10px);
+}
+
+.booking-glow-card h1 {
+    color: #4a4aaf;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.booking-glow-card p {
+    color: #555;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.booking-links-glow {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.booking-btn-glow {
+    display: inline-block;
+    padding: 18px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    background-image: linear-gradient(135deg, #d1b4c9, #4a4aaf);
+    color: #fff;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.booking-btn-glow:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+}
+
+.instagram-btn-glow {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    border: 2px solid #4a4aaf;
+    color: #4a4aaf;
+    background-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+.instagram-btn-glow:hover {
+    background-color: #4a4aaf;
+    color: #fff;
+}
+
+/* Sparkle effect styles */
+@keyframes sparkle-animation {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translate(var(--offset-x), var(--offset-y)) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--offset-x), var(--offset-y)) scale(0);
+        opacity: 0;
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: gold;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkle-animation 1s ease-out forwards;
+    z-index: 1000;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-left,
+    .nav-right {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .logo img {
+        height: 100px;
+    }
+
+    /* Gallery page single column layout for mobile */
+    .gallery-page-flex {
+        grid-template-columns: 1fr;
+    }
+}
