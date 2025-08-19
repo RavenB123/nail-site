@@ -6,37 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>I Love Ur Nails</title>
     <link rel="stylesheet" href="css/style.css" />
-    <style>
-        /* CSS for the sparkles */
-        .sparkle {
-            position: absolute;
-            background-color: #ff69b4;
-            /* Pink color for sparkles */
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            transform: scale(0);
-            animation: sparkle-fall 1s forwards;
-            box-shadow: 0 0 5px #ff69b4, 0 0 10px #ff69b4;
-        }
-
-        @keyframes sparkle-fall {
-            0% {
-                opacity: 1;
-                transform: scale(0);
-                top: var(--y);
-                left: var(--x);
-            }
-
-            100% {
-                opacity: 0;
-                transform: scale(1.2) translate(var(--offset-x), var(--offset-y));
-                filter: blur(2px);
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -61,36 +30,28 @@
     </header>
 
     <main>
-        <section class="fullscreen-image">
-            <img src="images/homepage.png" alt="Homepage" usemap="#map-homepage" />
-            <map name="map-homepage">
-                <area shape="rect" coords="85,35,177,159" href="images/services.png" alt="Services" target="_blank" />
-            </map>
-        </section>
-
-        <section class="scroll-image homepage2-section">
-            <img src="images/homepage2.png" alt="Homepage Part 2" class="background-image" />
-            <div class="overlay-links">
-                <a href="gallery.html" class="overlay-link gallery-link">
-                    <strong>Gallery</strong>
-                </a>
-                <a href="book.html" class="overlay-link book-link">
-                    <strong>Book Now!</strong>
-                </a>
+        <!-- A single container to hold both homepage images seamlessly -->
+        <div class="homepage-images-container">
+            <img src="images/homepage.png" alt="Homepage Part 1" class="homepage-image" />
+            <div class="homepage-image-two-wrapper">
+                <img src="images/homepage2.png" alt="Homepage Part 2" class="homepage-image" />
+                <div class="overlay-links">
+                    <a href="gallery.html" class="overlay-link gallery-link">
+                        <strong>Gallery</strong>
+                    </a>
+                    <a href="book.html" class="overlay-link book-link">
+                        <strong>Book Now!</strong>
+                    </a>
+                </div>
             </div>
-            <map name="map-homepage2">
-                <area shape="rect" coords="360,34,732,276" href="gallery.html" alt="Gallery" />
-                <area shape="rect" coords="950,44,1306,291" href="book.html" alt="Book" />
-            </map>
-        </section>
-
-        <footer class="site-footer">
-            &copy; 2025 I Love Ur Nails. All rights reserved. | <a href="policies.html"
-                class="footer-policies-link">Policies and Procedures</a>
-        </footer>
+        </div>
     </main>
+
+    <footer class="site-footer">
+        &copy; 2025 I Love Ur Nails. All rights reserved. | <a href="policies.html"
+            class="footer-policies-link">Policies and Procedures</a>
+    </footer>
     <script src="js/sparkle.js" defer></script>
 </body>
 
 </html>
-
