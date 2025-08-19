@@ -81,12 +81,57 @@ header {
     display: block;
     padding: 0;
     margin-bottom: -10px;
+    position: relative;
+    /* Add this to position overlay links */
 }
 
-.scroll-image img {
+.scroll-image img.background-image {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.overlay-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* Aligns items to the top of the container */
+    padding-top: 10%;
+    /* Moves the links down from the top */
+    pointer-events: none;
+    /* Allows clicks to go through to the links */
+    gap: 20%;
+    /* Adjust the gap between links */
+}
+
+.overlay-link {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    pointer-events: auto;
+    /* Re-enables clicks for the links */
+    border: 2px solid black;
+    /* Add a black border */
+    padding: 5px 10px;
+    /* Add some padding around the text */
+    border-radius: 5px;
+    /* Optional: adds a slight curve to the corners */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Optional: add a semi-transparent background for readability */
+
+    /* Animation for bobbing effect */
+    animation: bob 2s infinite alternate;
+}
+
+.overlay-link:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 /* Site Footer */
@@ -383,24 +428,67 @@ header {
     z-index: 1000;
 }
 
+/* The bobbing animation for the overlay links */
+@keyframes bob {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
+        /* Stack nav items on mobile */
+        padding: 15px 20px;
+        /* Reduce padding on mobile */
     }
 
     .nav-left,
     .nav-right {
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 5px;
+        /* Reduce margin */
+        gap: 15px;
+        /* Reduce gap */
+    }
+
+    .nav-left a,
+    .nav-right a {
+        font-size: 16px;
+        /* Smaller font for mobile nav links */
     }
 
     .logo img {
-        height: 100px;
+        height: 80px;
+        /* Smaller logo on mobile */
+    }
+
+    .site-footer {
+        font-size: 12px;
+        /* Smaller font for the footer */
     }
 
     /* Gallery page single column layout for mobile */
     .gallery-page-flex {
         grid-template-columns: 1fr;
+    }
+
+    .overlay-links {
+        gap: 10%;
+        /* Adjust gap for smaller screens */
+        padding-top: 25%;
+        /* Adjust this for mobile screens */
+    }
+
+    .overlay-link {
+        font-size: 4vw;
+        /* Adjust font size for smaller screens */
     }
 }
