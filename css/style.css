@@ -483,8 +483,11 @@ main {
         font-size: 12px;
     }
 
+    .homepage-images-container {
+        line-height: 0;
+    }
     .homepage-image {
-        display: block;
+        vertical-align: bottom;
     }
     
     .services-image {
