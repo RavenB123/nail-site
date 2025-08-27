@@ -492,6 +492,10 @@ main {
     .homepage-image {
         display: block;
     }
+    .services-image {
+        max-width: 100%;
+        height: auto;
+    }
 
     /* Gallery page single column layout for mobile */
     .gallery-page-flex {
