@@ -481,6 +481,10 @@ main {
 
     .site-footer {
         font-size: 12px;
+        
+    }
+    .homepage-images-container {
+        margin-bottom: -4px;
     }
 
     /* Gallery page single column layout for mobile */
