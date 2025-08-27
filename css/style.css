@@ -483,18 +483,8 @@ main {
         font-size: 12px;
         
     }
-    .homepage-images-container {
-        line-height: 0;
-    }
-    .homepage-image {
-        vertical-align: bottom;
-    }
-    .homepage-image {
+ .homepage-image {
         display: block;
-    }
-    .services-image {
-        max-width: 100%;
-        height: auto;
     }
 
     /* Gallery page single column layout for mobile */
