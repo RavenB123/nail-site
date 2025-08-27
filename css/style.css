@@ -481,11 +481,17 @@ main {
 
     .site-footer {
         font-size: 12px;
-        
     }
- .homepage-image {
+
+    .homepage-image {
         display: block;
     }
+    
+    .services-image {
+        max-width: 100%;
+        height: auto;
+    }
+}
 
     /* Gallery page single column layout for mobile */
     .gallery-page-flex {
