@@ -486,6 +486,9 @@ main {
     .homepage-images-container {
         margin-bottom: -4px;
     }
+    .homepage-image {
+        vertical-align: bottom;
+    }
 
     /* Gallery page single column layout for mobile */
     .gallery-page-flex {
