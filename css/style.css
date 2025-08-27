@@ -484,7 +484,7 @@ main {
         
     }
     .homepage-images-container {
-        margin-bottom: -4px;
+        line-height: 0;
     }
     .homepage-image {
         vertical-align: bottom;
