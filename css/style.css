@@ -483,7 +483,8 @@ main {
         font-size: 12px;
     }
 
-   .homepage-images-container {
+  .homepage-images-container,
+    .homepage-image-two-wrapper {
         line-height: 0;
     }
 
