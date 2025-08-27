@@ -489,6 +489,9 @@ main {
     .homepage-image {
         vertical-align: bottom;
     }
+    .homepage-image {
+        display: block;
+    }
 
     /* Gallery page single column layout for mobile */
     .gallery-page-flex {
