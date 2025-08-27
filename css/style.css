@@ -483,13 +483,14 @@ main {
         font-size: 12px;
     }
 
-    .homepage-images-container {
+   .homepage-images-container {
         line-height: 0;
     }
+
     .homepage-image {
+        display: block;
         vertical-align: bottom;
     }
-    
     .services-image {
         max-width: 100%;
         height: auto;
